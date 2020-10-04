@@ -70,4 +70,14 @@ def square_sum_difference2(k):
     sum_square = (1/3) * k**3 + (1/2) * k**2 + (1/6) * k
     return sum_k**2 - sum_square
 
-print(square_sum_difference2(100))
+# print(square_sum_difference2(100))
+
+"""
+Pythonic solution
+"""
+
+def square_sum_difference_py(k):
+    return sum(range(k+1))**2 - sum([i**2 for i in range(k+1)])
+
+print(square_sum_difference_py(10000000))
+
