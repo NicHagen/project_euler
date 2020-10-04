@@ -34,4 +34,40 @@ def square_sum_difference(k):
     square_sum += sum_square
     return square_sum - sum_square
 
-print(square_sum_difference(100))
+# print(square_sum_difference(10000))
+
+"""
+More efficient method for higher k utilising the fact that the sum of the
+natural numbers from 1..k can be determined as
+
+(k + 1)*k/2,
+
+and that the sum of the squares of the natural numbers 1^2 + 2^2 + ... + k^2
+can be determined as
+
+(1/3) * k^3 + (1/2) * k^2 + (1/6) * k
+"""
+
+def square_sum_difference2(k):
+    """function that calculates the difference between the square of the sum 
+    and the sum of the squares. Utilises the fact that the sum of the
+    natural numbers from 1..k can be determined as
+
+    (k + 1)*k/2,
+
+    and that the sum of the squares of the natural numbers 1^2 + 2^2 + ... + k^2
+    can be determined as
+
+    (1/3) * k^3 + (1/2) * k^2 + (1/6) * k
+
+    Args:
+        k (integer): the upper bound os the summands in 1..k
+
+    Returns:
+        float: the difference between square of sum and sum of squares
+    """
+    sum_k = (k + 1) * k / 2
+    sum_square = (1/3) * k**3 + (1/2) * k**2 + (1/6) * k
+    return sum_k**2 - sum_square
+
+print(square_sum_difference2(100))
