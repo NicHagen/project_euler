@@ -22,7 +22,8 @@ def pythagorean_triple_product(target, limit=100):
         limit (integer, optional): upper bound for m. Defaults to 100.
 
     Returns:
-        [type]: [description]
+        integer: product of a, b and c. Returns string if triple not found in
+        limit or does not exist.
     """
     for m in range(limit):
         for n in range(m):
