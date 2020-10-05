@@ -17,4 +17,34 @@ def all_primes(num):
             prime_list.append(cand_list[0])
     return prime_list
 
-# print(all_primes(20))
+
+import numpy as np
+
+
+
+
+
+def eratosthenes(N):
+    """eratosthenes sieve for creating prime numbers
+
+    Args:
+        N (integer): the maximum value to create prime numbers within
+
+    Returns:
+        numpy.ndarray: numpy array containing all the prime numbers <= N
+    """
+    eratosthenes = True
+    # mask for prime numbers
+    mask = np.ones([N], dtype=bool)
+    if not eratosthenes:
+        # simple prime sieve
+        mask[:2] = False
+        for j in range(2, int(np.sqrt(N)) + 1):
+            mask[j*j::j] = False
+    else:
+        # Eratosthenes sieve
+        mask[:2] = False
+        for j in range(2, int(np.sqrt(N)) + 1):
+            if mask[j]:
+                mask[j*j::j] = False
+    return np.nonzero(mask)[0]
