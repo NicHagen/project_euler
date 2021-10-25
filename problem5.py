@@ -71,3 +71,5 @@ def smallest_multiple(k):
     for i in range(len(primes)):
         poly *= primes[i]**powers[i]
     return poly
+
+print(smallest_multiple(20))
